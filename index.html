@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		button{
+			margin: 10px;
+		}
+		.bt{
+			display: block;
+		}
+		span{
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" name=""><button>添加</button>
+	<ol></ol>
+	<button class="bt">清空列表</button>
+	<script src="libs/jquery.min.js"></script>
+	<script>
+		var k='&nbsp;'
+		var c='×'
+		$('ol').on('click','span',function(){
+			// console.log($(this).text());
+			$('span').click(function(){
+			$(this).parent().remove();
+		});
+		});
+		$('button').eq(0).click(function(){
+			if (!$('input').val()) {
+				alert('还没有填写内容')
+			}else{
+				$('ol').prepend('<li>'+k+'<span>'+c+'</span>'+k+$('input').val()+'</li>')
+			}
+		});
+		$('button').eq(1).click(function(){
+			$('ol').remove();
+		});
+		$('span').click(function(){
+			$(this).parent().remove();
+		});
+	</script>
+</body>
+</html>
